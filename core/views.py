@@ -1,4 +1,6 @@
 import json
+import re
+
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
@@ -12,25 +14,33 @@ from users.forms import CarForm
 from users.models import Car
 
 
+class HomeView(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, template_name='home.html')
+
+
 class LoginView(View):
 
     def get(self, request, *args, **kwargs):
         redirect_to = request.GET.get('next', '')
-        return render(request, template_name='login.html', context={'next': redirect_to})
+        return render(request, template_name='sign_in.html', context={'next': redirect_to})
 
     def post(self, request, *args, **kwargs):
-        username = request.POST.get('username', '')
+        email = request.POST.get('email', '')
         password = request.POST.get('password', '')
-        if not username or not password:
+        if not email or not password:
             context = {
-                'error': 'username and password are required.'
+                'error': 'email and password are required.',
+                'email': email,
+                'password': password
             }
-            return render(request, template_name='', context=context)
-
-        user = authenticate(request, username=username, password=password)
+            return render(request, template_name='sign_in.html', context=context)
+        user = authenticate(request, email=email, password=password)
         if user is not None:
             login(request, user)
             # redirect to a success page
+            redirect_to = None
             if request.GET:
                 redirect_to = request.GET.get('next', '')
             if redirect_to:
@@ -39,9 +49,11 @@ class LoginView(View):
                 return HttpResponseRedirect(reverse("core:home"))
         else:
             context = {
-                'error': 'username and password are incorrect.'
+                'error': 'email and password are incorrect.',
+                'email': email,
+                'password': password
             }
-            return render(request, template_name='home.html', context=context)
+            return render(request, template_name='sign_in.html', context=context)
 
 
 def logout(request):
@@ -50,24 +62,32 @@ def logout(request):
     return render(request, template_name='home.html')
 
 
-class CarView(LoginRequiredMixin, CreateView, DeleteView):
+class CarRegisterView(LoginRequiredMixin, CreateView, DeleteView):
     login_url = '/login/'
     redirect_field_name = 'next'
     form_class = CarForm
+    model = Car
 
     def get(self, request, *args, **kwargs):
-        form = self.form_class()
-        context = {
-            'form': form
-        }
-        return render(request, template_name='car_register.html', context=context)
+        return render(request, template_name='car_register.html')
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(owner=request.user)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse(''))
-        return render(request, template_name='car_register.html', context={'form': form})
+        car_name = request.POST.get('car-name')
+        license_plate = request.POST.get('license-plate', '').upper()
+        description = request.POST.get('description')
+
+        pattern = re.compile("[0-9]{2}[A-Z][0-9]{5}([0-9])?")
+        response = {'status': 'success'}
+        if self.get_queryset().filter(license_plate_number=license_plate).exists():
+            response = {'status': 'failed', 'msg': 'License plate number already exists'}
+        if not pattern.match(license_plate):
+            response = {'status': 'failed', 'msg': 'License plate number is invalid'}
+        if response['status'] == 'success':
+            self.model.objects.create(car_name=car_name,
+                                      license_plate_number=license_plate,
+                                      description=description,
+                                      owner=request.user)
+        return JsonResponse(data=response)
 
     def delete(self, request, *args, **kwargs):
         pass

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}
+	<title>Parking Sign In</title>
+{% endblock %}
+
+{% block content %}
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				{% if next %}
+				<form class="login100-form validate-form" method="post" action="/login/?next={{next}}">
+				{% else %}
+				<form class="login100-form validate-form" method="post" action="{% url 'core:login' %}">
+				{% endif %}
+					{% csrf_token %}
+					<span class="login100-form-title p-b-26">
+						Welcome
+					</span>
+					<span class="login100-form-title p-b-26">
+						<i class="zmdi zmdi-font"></i>
+					</span>
+
+					<p class="error mb-5">{{ error }}</p>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter username">
+						{% if email %}
+						<input class="input100 has-val" type="text" name="email"
+							   data-validate="Valid email is: a@b.c" value="{{email}}">
+						{% else %}
+						<input class="input100" type="text" name="email" data-validate="Valid email is: a@b.c">
+						{% endif %}
+						<span class="focus-input100" data-placeholder="Email"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						{% if password %}
+						<input class="input100 has-val" type="password" name="password" value="{{password}}">
+						{% else %}
+						<input class="input100" type="password" name="password">
+						{% endif %}
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Login
+							</button>
+						</div>
+					</div>
+
+					<div class="text-center p-t-70">
+						<span class="txt1">
+							Don’t have an account?
+						</span>
+
+						<a class="txt2" href="{% url 'users:register' %}">
+							Sign Up
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div id="dropDownSelect1"></div>
+
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+	<title>Parking Sign Up</title>
+{% endblock %}
+
+{% block css %}
+{% include 'notification_css_js.html' %}
+{% endblock %}
+
+{% block content %}
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form id="signup-form" method="post" action="{% url 'users:register' %}" class="login100-form">
+					{% csrf_token %}
+					<span class="login100-form-title p-b-20">
+						Sign In
+					</span>
+					<span class="login100-form-title p-b-30">
+						<i class="zmdi zmdi-font"></i>
+					</span>
+
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="name" required>
+						<span class="focus-input100" data-placeholder="Your name"></span>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="email" name="email" required>
+						<span class="focus-input100" data-placeholder="Email"></span>
+					</div>
+
+					<div class="wrap-input100" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="password" minlength="6" required>
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Confirm password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="confirm-password" minlength="6" required>
+						<span class="focus-input100" data-placeholder="Confirm password"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Register
+							</button>
+						</div>
+					</div>
+
+					<div class="text-center p-t-20">
+						<span class="txt1">
+							Already have account?
+						</span>
+						<a class="txt2" href="{% url 'core:login' %}">
+							Sign In
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="dropDownSelect1"></div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'vendor/js-validate/jquery.validate.min.js' %}"></script>
+<script type="text/javascript">
+	$(document).ready(function(e) {
+		$('#signup-form').on("submit", function(e) {
+			e.preventDefault();
+			var form = $(this);
+			if (!form.valid()) return false;
+
+			$.ajax({
+				url: form.attr('action'),
+				type: form.attr('method'),
+				data: form.serialize(),
+				success: function(response) {
+					if (response["status"] == "failed") {
+						errorNotification({
+							title: "Error!",
+							message: response["msg"],
+						})
+					} else {
+						form.trigger("reset");
+						successNotification({
+							title: "Success",
+							message: "Your account is ready",
+						})
+					}
+				}
+			})
+		});
+		// $('#signup-form').validate({
+		// 	rules: {
+		// 		"name": {
+		// 			required: true
+		// 		},
+		// 		"email": {
+		// 			required: true
+		// 		}
+		// 	}
+		// });
+	});
+</script>
+{% endblock %}

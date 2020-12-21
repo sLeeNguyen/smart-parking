@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# other
+devices/migrations/00*
+users/migrations/00*

@@ -4,8 +4,14 @@ from django.utils.translation import gettext_lazy as _
 
 
 class User(AbstractUser):
+
+    email = models.EmailField(_('email address'), unique=True, blank=False, null=False)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
     def __str__(self):
-        return self.username
+        return self.email
 
 
 class Car(models.Model):

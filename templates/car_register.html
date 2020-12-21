@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+	<title>Parking Sign Up</title>
+{% endblock %}
+
+{% block css %}
+{% include 'notification_css_js.html' %}
+{% endblock %}
+
+{% block content %}
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form id="car-form" method="post" action="{% url 'core:car' %}" class="login100-form">
+					{% csrf_token %}
+					<span class="login100-form-title p-b-20">
+						Register Your Car
+					</span>
+					<span class="login100-form-title p-b-30">
+						<i class="zmdi zmdi-font"></i>
+					</span>
+
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="car-name" required>
+						<span class="focus-input100" data-placeholder="Car name"></span>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="license-plate" required>
+						<span class="focus-input100" data-placeholder="License plate number"></span>
+					</div>
+
+					<div class="wrap-input100" data-validate="Enter password">
+                        <textarea class="input100" name="description" id="description" class="input100" placeholder="description"></textarea>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Register
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="dropDownSelect1"></div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'vendor/js-validate/jquery.validate.min.js' %}"></script>
+<script type="text/javascript">
+	$(document).ready(function(e) {
+		$('#car-form').on("submit", function(e) {
+			e.preventDefault();
+			var form = $(this);
+			if (!form.valid()) return false;
+
+			$.ajax({
+				url: form.attr('action'),
+				type: form.attr('method'),
+				data: form.serialize(),
+				success: function(response) {
+					if (response["status"] == "failed") {
+						errorNotification({
+							title: "Error!",
+							message: response["msg"],
+						})
+					} else {
+						form.trigger("reset");
+						successNotification({
+							title: "Success",
+						})
+					}
+				},
+				error: function(e) {
+					infoNotification({
+						title: "Server got an error"
+					})
+				}
+			})
+		});
+		// $('#signup-form').validate({
+		// 	rules: {
+		// 		"name": {
+		// 			required: true
+		// 		},
+		// 		"email": {
+		// 			required: true
+		// 		}
+		// 	}
+		// });
+	});
+</script>
+{% endblock %}
