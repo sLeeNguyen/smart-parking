@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'devices.apps.DevicesConfig',
+    'core.apps.CoreConfig',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +77,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'smart_parking.wsgi.application'
 
+# channel
+ASGI_APPLICATION = 'smart_parking.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

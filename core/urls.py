@@ -7,5 +7,7 @@ urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
     path('login/', views.LoginView.as_view(), name='login'),
     path('car/', views.CarRegisterView.as_view(), name='car'),
-    path('validate-license/', views.check_license_number, name='validate-license-number')
+    path('validate-license/', views.check_license_number, name='validate-license-number'),
+    path('parking/', views.ParkingView.as_view(), name='parking'),
+    path('test/', views.test_parking_state),
 ]

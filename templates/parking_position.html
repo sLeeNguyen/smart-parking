@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Parking Map</title>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Smart Parking</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a class="nav-link" href="{% url 'core:parking' %}">Parking</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Cars</a></li>
+            <!--            <li class="nav-item"><a class="nav-link" href="ParkTime.php">Thời gian đỗ</a></li>-->
+            <!--            <li class="nav-item"><a class="nav-link" href="CardInfo.php">Thẻ liên kết</a></li>-->
+        </ul>
+        <a class="navbar-brand" href="">
+            <i class="fas fa-user-circle"></i>
+            Account
+        </a>
+        <a class="navbar-brand" href="#">
+            Logout
+        </a>
+    </nav>
+    <!--    <div class="header"-->
+    <!--         style="background-image: url('bg.jpg'); height: 100px; text-align: center; background-color: turquoise;">-->
+    <!--    </div>-->
+    <div class="row px-5 py-4">
+        <div class="col-md-8 px-3">
+            <div class="mx-5 h-100">
+                <h2 class="text-center font-weight-bold mb-3">Parking Map</h2>
+                <br>
+                <div class="text-center"><i class="fas fa-arrow-up fa-2x"></i></div>
+                <h5 class="text-center">Exit</h5>
+                <table class="table text-center mt-3">
+                    <tbody>
+                    <tr>
+                        <td class="position-label-left">A1</td>
+                        {% for slot in map.A1 %}
+                            {% if slot == 0 %}
+                            <td id="A1-{{forloop.counter}}" class="A1 border bg-success"
+                                title="Vị trí trống: Khu A1 - vị trí {{forloop.counter}}">{{forloop.counter}}</td>
+                            {% elif slot == 1 %}
+                            <td id="A1-{{forloop.counter}}" class="A1 border bg-danger"
+                                title="Vị trí đang được sử dụng: Khu A1 - vị trí {{forloop.counter}}">{{forloop.counter}}</td>
+                            {% else %}
+                            <td id="A1-{{forloop.counter}}" class="A1 border disable"
+                                title="Không có dữ liệu">{{forloop.counter}}</td>
+                            {% endif %}
+                        {% endfor %}
+<!--                        <td id="A1-1" class="A1 border bg-success">01</td>-->
+<!--                        <td id="A1-2" class="A1 border bg-success">02</td>-->
+<!--                        <td id="A1-3" class="A1 border bg-success">03</td>-->
+<!--                        <td id="A1-4" class="A1 border bg-success">04</td>-->
+<!--                        <td id="A1-5" class="A1 border bg-success">05</td>-->
+<!--                        <td id="A1-6" class="A1 border bg-success">06</td>-->
+                        <td class="border-0"></td>
+                        <td class="border-0"></td>
+                        {% for slot in map.A2 %}
+                            {% if slot == 0 %}
+                            <td id="A2-{{forloop.counter}}" class="A2 border bg-success"
+                                title="Vị trí trống: Khu A2 - vị trí {{forloop.counter}}">{{forloop.counter}}</td>
+                            {% elif slot == 1 %}
+                            <td id="A2-{{forloop.counter}}" class="A2 border bg-danger"
+                                title="Vị trí đang được sử dụng: Khu A2 - vị trí {{forloop.counter}}">{{forloop.counter}}</td>
+                            {% else %}
+                            <td id="A2-{{forloop.counter}}" class="A2 border disable"
+                                title="Không có dữ liệu">{{forloop.counter}}</td>
+                            {% endif %}
+                        {% endfor %}
+<!--                        <td id="A2-1" class="A2 border bg-success">01</td>-->
+<!--                        <td id="A2-2" class="A2 border bg-success">02</td>-->
+<!--                        <td id="A2-3" class="A2 border bg-success">03</td>-->
+<!--                        <td id="A2-4" class="A2 border bg-success">04</td>-->
+<!--                        <td id="A2-5" class="A2 border bg-success">05</td>-->
+<!--                        <td id="A2-6" class="A2 border bg-success">06</td>-->
+                        <td class="position-label-right">A2</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7" class="text-center"></td>
+                        <td colspan="2" class="border-0"></td>
+                        <td colspan="7" class="text-center"></td>
+                    </tr>
+                    <tr>
+                        <td class="position-label-left">B1</td>
+                        {% for slot in map.B1 %}
+                            {% if slot == 0 %}
+                            <td id="B1-{{forloop.counter}}" class="B1 border bg-success"
+                                title="Vị trí trống: Khu B1 - vị trí {{forloop.counter}}">{{forloop.counter}}</td>
+                            {% elif slot == 1 %}
+                            <td id="B1-{{forloop.counter}}" class="B1 border bg-danger"
+                                title="Vị trí đang được sử dụng: Khu B1 - vị trí {{forloop.counter}}">{{forloop.counter}}</td>
+                            {% else %}
+                            <td id="B1-{{forloop.counter}}" class="B1 border disable"
+                                title="Không có dữ liệu">{{forloop.counter}}</td>
+                            {% endif %}
+                        {% endfor %}
+<!--                        <td id="B1-1" class="B1 border bg-success">01</td>-->
+<!--                        <td id="B1-2" class="B1 border bg-success">02</td>-->
+<!--                        <td id="B1-3" class="B1 border bg-success">03</td>-->
+<!--                        <td id="B1-4" class="B1 border bg-success">04</td>-->
+<!--                        <td id="B1-5" class="B1 border bg-success">05</td>-->
+<!--                        <td id="B1-6" class="B1 border bg-success">06</td>-->
+                        <td class="border-0"></td>
+                        <td class="border-0"></td>
+                        {% for slot in map.B2 %}
+                            {% if slot == 0 %}
+                            <td id="B2-{{forloop.counter}}" class="B2 border bg-success"
+                                title="Vị trí trống: Khu B2 - vị trí {{forloop.counter}}">{{forloop.counter}}</td>
+                            {% elif slot == 1 %}
+                            <td id="B2-{{forloop.counter}}" class="B2 border bg-danger"
+                                title="Vị trí đang được sử dụng: Khu B2 - vị trí {{forloop.counter}}">{{forloop.counter}}</td>
+                            {% else %}
+                            <td id="B2-{{forloop.counter}}" class="B2 border disable"
+                                title="Không có dữ liệu">{{forloop.counter}}</td>
+                            {% endif %}
+                        {% endfor %}
+<!--                        <td id="B2-1" class="B2 border bg-success">01</td>-->
+<!--                        <td id="B2-2" class="B2 border bg-success">02</td>-->
+<!--                        <td id="B2-3" class="B2 border bg-success">03</td>-->
+<!--                        <td id="B2-4" class="B2 border bg-success">04</td>-->
+<!--                        <td id="B2-5" class="B2 border bg-success">05</td>-->
+<!--                        <td id="B2-6" class="B2 border bg-success">06</td>-->
+                        <td class="position-label-right">B2</td>
+                    </tr>
+                    <tr>
+                        <td class="position-label-left">B3</td>
+                        {% for slot in map.B3 %}
+                            {% if slot == 0 %}
+                            <td id="B3-{{forloop.counter}}" class="B3 border bg-success"
+                                title="Vị trí trống: Khu B3 - vị trí {{forloop.counter}}">{{forloop.counter}}</td>
+                            {% elif slot == 1 %}
+                            <td id="B3-{{forloop.counter}}" class="B3 border bg-danger"
+                                title="Vị trí đang được sử dụng: Khu B3 - vị trí {{forloop.counter}}">{{forloop.counter}}</td>
+                            {% else %}
+                            <td id="B3-{{forloop.counter}}" class="B3 border disable"
+                                title="Không có dữ liệu">{{forloop.counter}}</td>
+                            {% endif %}
+                        {% endfor %}
+<!--                        <td id="B3-1" class="B3 border bg-success">01</td>-->
+<!--                        <td id="B3-2" class="B3 border bg-success">02</td>-->
+<!--                        <td id="B3-3" class="B3 border bg-success">03</td>-->
+<!--                        <td id="B3-4" class="B3 border bg-success">04</td>-->
+<!--                        <td id="B3-5" class="B3 border bg-success">05</td>-->
+<!--                        <td id="B3-6" class="B3 border bg-success">06</td>-->
+                        <td class="border-0"></td>
+                        <td class="border-0"></td>
+                        {% for slot in map.B4 %}
+                            {% if slot == 0 %}
+                            <td id="B4-{{forloop.counter}}" class="B4 border bg-success"
+                                title="Vị trí trống: Khu B4 - vị trí {{forloop.counter}}">{{forloop.counter}}</td>
+                            {% elif slot == 1 %}
+                            <td id="B4-{{forloop.counter}}" class="B4 border bg-danger"
+                                title="Vị trí đang được sử dụng: Khu B4 - vị trí {{forloop.counter}}">{{forloop.counter}}</td>
+                            {% else %}
+                            <td id="B4-{{forloop.counter}}" class="B4 border disable"
+                                title="Không có dữ liệu">{{forloop.counter}}</td>
+                            {% endif %}
+                        {% endfor %}
+<!--                        <td id="B4-1" class="B4 border bg-success">01</td>-->
+<!--                        <td id="B4-2" class="B4 border bg-success">02</td>-->
+<!--                        <td id="B4-3" class="B4 border bg-success">03</td>-->
+<!--                        <td id="B4-4" class="B4 border bg-success">04</td>-->
+<!--                        <td id="B4-5" class="B4 border bg-success">05</td>-->
+<!--                        <td id="B4-6" class="B4 border bg-success">06</td>-->
+                        <td class="position-label-right">B4</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br/>
+                <div class="text-center"><i class="fas fa-arrow-up fa-2x"></i></div>
+                <h5 class="text-center">Entrance</h5>
+            </div>
+        </div>
+        <div class="col-md-4 px-5">
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'vendor/chartjs/dist/Chart.min.js' %}"></script>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        const chatSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/parking/'
+        );
+
+        chatSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            const x = $(`#${data.id}`);
+
+            if (data.status == 0) {
+                if (!x.hasClass("bg-success")) {
+                    x.removeClass("bg-danger disable");
+                    x.addClass("bg-success");
+                    x.attr("title", `Vị trí trống: Khu ${data.deviceId} - vị trí ${data.position}`);
+                }
+            } else if (data.status == 1) {
+                if (!x.hasClass("bg-danger")) {
+                    x.removeClass("bg-success disable");
+                    x.addClass("bg-danger");
+                    x.attr("title", `Vị trí đang được sử dụng: Khu ${data.deviceId} - vị trí ${data.position}`);
+                }
+            } else if (data.status == 2) {
+                if (!x.hasClass("disable")) {
+                    x.removeClass("bg-danger bg-success");
+                    x.addClass("disable");
+                    x.attr("title", "Không có dữ liệu");
+                }
+            }
+        }
+
+        chatSocket.onclose = function(e) {
+
+        }
+
+    });
+</script>
+{% endblock %}

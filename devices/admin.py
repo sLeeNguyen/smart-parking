@@ -9,4 +9,4 @@ class DeviceAdmin(admin.ModelAdmin):
     form = DeviceAdminForm
     add_form = DeviceAdminForm
     list_display = ('device_id', 'device_name', 'position', 'is_active')
-    list_filter = ('position', 'is_active')
+    list_filter = ('is_active',)

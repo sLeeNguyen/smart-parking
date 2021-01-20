@@ -1,15 +1,20 @@
 import json
 import re
 
+import channels
 from django.shortcuts import render
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.urls import reverse
 from django.views.generic import DeleteView, CreateView, ListView
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
+from asgiref.sync import async_to_sync
 
+from core import consumers
+from core.consumers import send_parking_state_data
+from devices.models import Device
 from users.forms import CarForm
 from users.models import Car
 
@@ -123,3 +128,35 @@ def check_license_number(request):
         'status': 'fail',
         'message': 'License plate number does not exists'
     })
+
+
+class ParkingView(View):
+    login_url = '/login/'
+    redirect_field_name = 'next'
+    template_name = "parking_position.html"
+
+    def get(self, request):
+        parking_map = {}
+        for device in Device.objects.all():
+            if device.is_active:
+                parking_map[device.position] = device.to_occupied_array()
+            else:
+                parking_map[device.position] = [-1]*6
+        print(parking_map)
+        context = {
+            "map": parking_map
+        }
+        return render(request, template_name=self.template_name, context=context)
+
+
+def test_parking_state(request):
+    device_id = request.GET.get("deviceId")
+    position = request.GET.get("position")
+    status = request.GET.get("status")
+    send_parking_state_data({
+        "id": "%s-%s" % (device_id, position),
+        "deviceId": device_id,
+        "position": position,
+        "status": status
+    })
+    return HttpResponse("OK")
