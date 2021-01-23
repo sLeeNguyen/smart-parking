@@ -563,3 +563,21 @@ iframe {
 .table .disable {
     background-color: #999999 !important;
 }
+
+.home-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+.home-btn img {
+    width: 70px;
+    height: auto;
+}
+
+.home-btn:hover {
+    right: 40px;
+    bottom: 40px;
+    transition: 0.5s all;
+    transform: scale(1.1);
+}

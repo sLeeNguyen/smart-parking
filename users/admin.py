@@ -10,7 +10,7 @@ admin.site.register(models.User)
 @admin.register(models.Car)
 class CarAdmin(admin.ModelAdmin):
     form = CarForm
-    list_display = ('car_name', 'license_plate_number', 'owner',)
+    list_display = ('id', 'car_name', 'license_plate_number', 'owner',)
     list_filter = ('owner',)
 
     # In admin site, the manager can not have add, change, delete permissions

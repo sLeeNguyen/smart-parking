@@ -4,6 +4,7 @@ body {
 
 .list-cars {
     display: inline-block;
+    width: 100%;
 }
 
 .list-cars .car-box {
@@ -16,6 +17,7 @@ body {
     cursor: pointer;
     margin: 1%;
     float: left;
+    height: 300px;
 }
 
 .list-cars .car-box:hover {
@@ -30,4 +32,29 @@ body {
     font-weight: bold;
     text-align: center;
     margin-bottom: 10px;
+}
+
+.list-cars .car-box .description {
+    height: 160px;
+    overflow-y: auto;
+}
+
+.list-cars .car-detail .carname {
+    display: contents;
+}
+
+.car-register {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
+
+.car-register img {
+    width: 110px;
+    height: auto;
+}
+
+.car-register:hover {
+    transition: 0.5s all;
+    transform: scale(1.1);
 }

@@ -12,7 +12,7 @@
 {% block content %}
 <div class="container-fluid">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand" href="#">Smart Parking</a>
+        <a class="navbar-brand" href="{% url 'core:home' %}">Smart Parking</a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active"><a class="nav-link" href="{% url 'core:parking' %}">Parking</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'core:car' %}">Cars</a></li>
@@ -23,7 +23,7 @@
             <i class="fas fa-user-circle"></i>
             Account
         </a>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{% url 'core:logout' %}">
             Logout
         </a>
     </nav>
@@ -147,7 +147,7 @@
                 <div class="parking-info mt-2">
                     <div class="row my-1">
                         <div class="col-md-5 font-weight-bold">Parking's name:</div>
-                        <div class="">Prometheus N12</div>
+                        <div class="">Prometheus N9</div>
                     </div>
                     <div class="row my-1">
                         <div class="col-md-5 font-weight-bold">Area:</div>
@@ -157,10 +157,21 @@
                         <div class="col-md-5 font-weight-bold">Number of slots:</div>
                         <div class="">36</div>
                     </div>
-
                 </div>
             </div>
-            <canvas id="myChart" width="400" height="400"></canvas>
+            <div class="mb-3 mt-4">
+                <div class="d-flex justify-content-between align-items-center py-1">
+                    <h6>Parking Analysis</h6>
+                    <select id="time-select" style="font-size: 0.9rem;">
+                        <option value="today">Today</option>
+                        <option value="yesterday">Yesterday</option>
+                        <option value="week">This week</option>
+                        <option value="month" selected>This month</option>
+                    </select>
+                </div>
+                <canvas id="inChart" width="400" height="400"></canvas>
+                <canvas id="outChart" width="400" height="400"></canvas>
+            </div>
         </div>
     </div>
 </div>
@@ -169,46 +180,113 @@
 {% block js %}
 <script src="{% static 'vendor/chartjs/dist/Chart.min.js' %}"></script>
 <script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
+    var ctx1 = document.getElementById('inChart').getContext('2d');
+    var inChart = new Chart(ctx1, {
+        type: 'line',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ["1:00", "2:00"],
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
+                label: 'Number of vehicles to the parking lot',
+                data: [0, 0],
+                backgroundColor: 'rgba(54, 162, 235, 0.3)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1.5,
             }]
         },
         options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: "Vehicle flow to the parking lot by hour",
+                position: 'bottom'
+            },
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        max: 7
                     },
                 }]
             }
         }
     });
+    var ctx2 = document.getElementById('outChart').getContext('2d');
+    var outChart = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ["1", "2"],
+            datasets: [{
+                label: 'Number of vehicles leaves the parking lot',
+                data: [0, 0],
+                backgroundColor: 'rgba(255, 99, 132, 0.3)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1.5,
+            }]
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: "Vehicle flow leaves the parking lot by hour",
+                position: 'bottom'
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        max: 7
+                    },
+                }]
+            }
+        }
+    });
+
+    function analyzeParking(key) {
+        $.ajax({
+            url: "{% url 'core:flow-analysis' %}",
+            method: "GET",
+            data: {"key_time": key},
+            success: function(data) {
+                inChart.data.labels = data.in.labels;
+                inChart.data.datasets[0].data = data.in.datasets;
+                inChart.options.scales.yAxes[0].ticks.max = Math.max(6, data.in.max + 2)
+                outChart.data.labels = data.out.labels;
+                outChart.data.datasets[0].data = data.out.datasets;
+                outChart.options.scales.yAxes[0].ticks.max = Math.max(6, data.in.max + 2)
+                inChart.update({
+                    duration: 1500,
+                    easing: "easeOutQuint"
+                });
+                outChart.update({
+                    duration: 1500,
+                    easing: "easeOutQuint"
+                })
+            },
+            error: function() {
+                inChart.data.labels = [];
+                inChart.data.datasets[0].data = [];
+                outChart.data.labels = [];
+                outChart.data.datasets[0].data = [];
+                inChart.update({
+                    duration: 1500,
+                    easing: "easeOutQuint"
+                });
+                outChart.update({
+                    duration: 1500,
+                    easing: "easeOutQuint"
+                })
+            }
+        });
+    }
 </script>
 <script>
     $(document).ready(function() {
+        analyzeParking($("#time-select").val());
+
+        $("#time-select").change(function(e) {
+            analyzeParking(this.value);
+        });
+
         const chatSocket = new WebSocket(
             'ws://'
             + window.location.host
