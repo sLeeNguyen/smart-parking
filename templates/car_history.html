@@ -1,0 +1,30 @@
+{% load custom_tags%}
+
+<h3 class="my-3">Car History</h3>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Car</th>
+        <th scope="col">Time in</th>
+        <th scope="col">Time out</th>
+        <th scope="col">Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for history in list_histories %}
+    <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <th scope="row">{{ history.car.license_plate_number }}</th>
+        <td>{{ history.time_in|datetime_format }}</td>
+        {% if history.time_out %}
+        <td>{{ history.time_out|datetime_format }}</td>
+        <td>{{ history.time_out|duration_format:history.time_in }}</td>
+        {% else %}
+        <td>--/--/-- --:--:--</td>
+        <td>--:--:--</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
