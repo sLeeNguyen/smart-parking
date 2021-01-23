@@ -5,13 +5,17 @@
 <title>Parking Map</title>
 {% endblock %}
 
+{% block css%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/parking.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="container-fluid">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <a class="navbar-brand" href="#">Smart Parking</a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active"><a class="nav-link" href="{% url 'core:parking' %}">Parking</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Cars</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'core:car' %}">Cars</a></li>
             <!--            <li class="nav-item"><a class="nav-link" href="ParkTime.php">Thời gian đỗ</a></li>-->
             <!--            <li class="nav-item"><a class="nav-link" href="CardInfo.php">Thẻ liên kết</a></li>-->
         </ul>
@@ -49,12 +53,6 @@
                                 title="Không có dữ liệu">{{forloop.counter}}</td>
                             {% endif %}
                         {% endfor %}
-<!--                        <td id="A1-1" class="A1 border bg-success">01</td>-->
-<!--                        <td id="A1-2" class="A1 border bg-success">02</td>-->
-<!--                        <td id="A1-3" class="A1 border bg-success">03</td>-->
-<!--                        <td id="A1-4" class="A1 border bg-success">04</td>-->
-<!--                        <td id="A1-5" class="A1 border bg-success">05</td>-->
-<!--                        <td id="A1-6" class="A1 border bg-success">06</td>-->
                         <td class="border-0"></td>
                         <td class="border-0"></td>
                         {% for slot in map.A2 %}
@@ -69,12 +67,6 @@
                                 title="Không có dữ liệu">{{forloop.counter}}</td>
                             {% endif %}
                         {% endfor %}
-<!--                        <td id="A2-1" class="A2 border bg-success">01</td>-->
-<!--                        <td id="A2-2" class="A2 border bg-success">02</td>-->
-<!--                        <td id="A2-3" class="A2 border bg-success">03</td>-->
-<!--                        <td id="A2-4" class="A2 border bg-success">04</td>-->
-<!--                        <td id="A2-5" class="A2 border bg-success">05</td>-->
-<!--                        <td id="A2-6" class="A2 border bg-success">06</td>-->
                         <td class="position-label-right">A2</td>
                     </tr>
                     <tr>
@@ -96,12 +88,6 @@
                                 title="Không có dữ liệu">{{forloop.counter}}</td>
                             {% endif %}
                         {% endfor %}
-<!--                        <td id="B1-1" class="B1 border bg-success">01</td>-->
-<!--                        <td id="B1-2" class="B1 border bg-success">02</td>-->
-<!--                        <td id="B1-3" class="B1 border bg-success">03</td>-->
-<!--                        <td id="B1-4" class="B1 border bg-success">04</td>-->
-<!--                        <td id="B1-5" class="B1 border bg-success">05</td>-->
-<!--                        <td id="B1-6" class="B1 border bg-success">06</td>-->
                         <td class="border-0"></td>
                         <td class="border-0"></td>
                         {% for slot in map.B2 %}
@@ -116,12 +102,6 @@
                                 title="Không có dữ liệu">{{forloop.counter}}</td>
                             {% endif %}
                         {% endfor %}
-<!--                        <td id="B2-1" class="B2 border bg-success">01</td>-->
-<!--                        <td id="B2-2" class="B2 border bg-success">02</td>-->
-<!--                        <td id="B2-3" class="B2 border bg-success">03</td>-->
-<!--                        <td id="B2-4" class="B2 border bg-success">04</td>-->
-<!--                        <td id="B2-5" class="B2 border bg-success">05</td>-->
-<!--                        <td id="B2-6" class="B2 border bg-success">06</td>-->
                         <td class="position-label-right">B2</td>
                     </tr>
                     <tr>
@@ -138,12 +118,6 @@
                                 title="Không có dữ liệu">{{forloop.counter}}</td>
                             {% endif %}
                         {% endfor %}
-<!--                        <td id="B3-1" class="B3 border bg-success">01</td>-->
-<!--                        <td id="B3-2" class="B3 border bg-success">02</td>-->
-<!--                        <td id="B3-3" class="B3 border bg-success">03</td>-->
-<!--                        <td id="B3-4" class="B3 border bg-success">04</td>-->
-<!--                        <td id="B3-5" class="B3 border bg-success">05</td>-->
-<!--                        <td id="B3-6" class="B3 border bg-success">06</td>-->
                         <td class="border-0"></td>
                         <td class="border-0"></td>
                         {% for slot in map.B4 %}
@@ -158,12 +132,6 @@
                                 title="Không có dữ liệu">{{forloop.counter}}</td>
                             {% endif %}
                         {% endfor %}
-<!--                        <td id="B4-1" class="B4 border bg-success">01</td>-->
-<!--                        <td id="B4-2" class="B4 border bg-success">02</td>-->
-<!--                        <td id="B4-3" class="B4 border bg-success">03</td>-->
-<!--                        <td id="B4-4" class="B4 border bg-success">04</td>-->
-<!--                        <td id="B4-5" class="B4 border bg-success">05</td>-->
-<!--                        <td id="B4-6" class="B4 border bg-success">06</td>-->
                         <td class="position-label-right">B4</td>
                     </tr>
                     </tbody>
@@ -174,6 +142,24 @@
             </div>
         </div>
         <div class="col-md-4 px-5">
+            <div class="my-3 parking-info-box">
+                <h4>Parking Information</h4>
+                <div class="parking-info mt-2">
+                    <div class="row my-1">
+                        <div class="col-md-5 font-weight-bold">Parking's name:</div>
+                        <div class="">Prometheus N12</div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-md-5 font-weight-bold">Area:</div>
+                        <div class="">90000 m<sup>2</sup></div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-md-5 font-weight-bold">Number of slots:</div>
+                        <div class="">36</div>
+                    </div>
+
+                </div>
+            </div>
             <canvas id="myChart" width="400" height="400"></canvas>
         </div>
     </div>
@@ -215,7 +201,7 @@
                 yAxes: [{
                     ticks: {
                         beginAtZero: true
-                    }
+                    },
                 }]
             }
         }

@@ -1,22 +1,22 @@
 import json
 import re
 
-import channels
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.urls import reverse
+from django.utils import timezone
 from django.views.generic import DeleteView, CreateView, ListView
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
-from asgiref.sync import async_to_sync
 
-from core import consumers
 from core.consumers import send_parking_state_data
+from core.models import ParkingHistory
 from devices.models import Device
 from users.forms import CarForm
 from users.models import Car
+from elasticsearch_client import es as elasticsearch
 
 
 class HomeView(View):
@@ -61,10 +61,10 @@ class LoginView(View):
             return render(request, template_name='sign_in.html', context=context)
 
 
-def logout(request):
+def logout_view(request):
     logout(request)
     # redirect to home page
-    return render(request, template_name='home.html')
+    return redirect(reverse('core:home'))
 
 
 class CarRegisterView(LoginRequiredMixin, CreateView, DeleteView):
@@ -99,9 +99,14 @@ class CarRegisterView(LoginRequiredMixin, CreateView, DeleteView):
 
 
 class ListCarView(LoginRequiredMixin, ListView):
-    template_name = ''
+    login_url = '/login/'
+    redirect_field_name = 'next'
+    template_name = 'car_management.html'
     model = Car
     queryset = Car.objects.all()
+
+    def get(self, request, *args, **kwargs):
+        return render(request, template_name=self.template_name)
 
     def get_queryset(self):
         queryset = self.queryset.filter(owner=self.request.user)
@@ -109,7 +114,7 @@ class ListCarView(LoginRequiredMixin, ListView):
 
 
 @csrf_exempt
-def check_license_number(request):
+def check_in(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         try:
@@ -120,7 +125,13 @@ def check_license_number(request):
                         'message': 'Body must have license_number field'
                 }, status=404)
 
-        if Car.objects.filter(license_plate_number=license_number).exists():
+        cars = Car.objects.filter(license_plate_number=license_number)
+        if cars.exists():
+            history = ParkingHistory.objects.create(car=cars[0])
+            elasticsearch.index_parking_history(id=history.id,
+                                                car_id=history.car.id,
+                                                user_id=history.car.user.id,
+                                                time_in=history.time_in)
             return JsonResponse(data={
                 'status': 'success'
             })
@@ -130,7 +141,36 @@ def check_license_number(request):
     })
 
 
-class ParkingView(View):
+@csrf_exempt
+def check_out(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        try:
+            license_number = data['license_number']
+        except KeyError:
+            return JsonResponse(data={
+                        'status': 'fail',
+                        'message': 'Body must have license_number field'
+                }, status=404)
+
+        cars = Car.objects.filter(license_plate_number=license_number)
+        if cars.exists():
+            try:
+                history = ParkingHistory.objects.get(car=cars[0], time_out__isnull=True, fees__isnull=True)
+                history.time_out = timezone.now()
+                history.fees = calc_fees(time_in=history.time_in, time_out=history.time_out)
+                history.save()
+                elasticsearch.update_parking_history_time_out(id=history.id,
+                                                              time_out=history.time_out,
+                                                              fees=history.fees)
+            except ParkingHistory.DoesNotExist:
+                pass
+    return JsonResponse(data={
+        'status': 'fail',
+    })
+
+
+class ParkingView(LoginRequiredMixin, View):
     login_url = '/login/'
     redirect_field_name = 'next'
     template_name = "parking_position.html"
@@ -149,14 +189,9 @@ class ParkingView(View):
         return render(request, template_name=self.template_name, context=context)
 
 
-def test_parking_state(request):
-    device_id = request.GET.get("deviceId")
-    position = request.GET.get("position")
-    status = request.GET.get("status")
-    send_parking_state_data({
-        "id": "%s-%s" % (device_id, position),
-        "deviceId": device_id,
-        "position": position,
-        "status": status
-    })
-    return HttpResponse("OK")
+def calc_fees(time_in, time_out):
+    BASE_FEE = 5000
+    FEES_PER_HOUR = 10000
+    duration = time_out - time_in
+    hours = duration.days * 24 + duration.seconds / 3600
+    return BASE_FEE + int(hours * FEES_PER_HOUR)

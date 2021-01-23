@@ -15,6 +15,7 @@ from channels.auth import AuthMiddlewareStack
 
 import core.routing
 from mqtt.mqtt_client import MQTTClient
+from elasticsearch_client import es as elasticsearch
 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'smart_parking.settings')
@@ -28,6 +29,10 @@ application = ProtocolTypeRouter({
     )
 })
 
+# create connection to mqtt broker
 client = MQTTClient.get_instance()
 client.default_connect()
 client.loop_start()
+
+# create connection to elasticsearch
+elasticsearch.init()

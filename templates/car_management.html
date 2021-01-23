@@ -1,10 +1,194 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
 
-</body>
-</html>
+{% block title %}
+<title>Car Management</title>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/car.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Smart Parking</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="{% url 'core:parking' %}">Parking</a></li>
+            <li class="nav-item active"><a class="nav-link" href="{% url 'core:car' %}">Cars</a></li>
+        </ul>
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-user-circle"></i>
+            Account
+        </a>
+        <a class="navbar-brand" href="{% url 'core:logout' %}">
+            Logout
+        </a>
+    </nav>
+    <div class="container">
+        <h2 class="text-center my-3">Your registered cars</h2>
+        <div class="list-cars">
+            <a class="car-box" href="#history">
+                <div class="car-title">Xe 1</div>
+                <div class="car-detail">
+                    <div class="d-flex my-1">
+                        <div class="col-md-5 font-weight-bold pr-0">Car's name</div>
+                        <div class="col-md-7 pl-0">Rolls-Royce Limited (1931)</div>
+                    </div>
+                    <div class="d-flex my-1">
+                        <div class="col-md-5 font-weight-bold pr-0">Plate number</div>
+                        <div class="col-md-7 pl-0">B52-6587</div>
+                    </div>
+                    <div class="d-flex my-1 description">
+                        <div class="col">
+                            <b class="mr-3">Description: </b>Bentley Motors Limited is a British company that designs,
+                            develops, and manufactures luxury motorcars which are largely hand-built. It is a subsidiary
+                            of Volkswagen
+                            AG.Now based in Crewe, England, Bentley Motors Limited was founded by W. O. Bentley on 18
+                            January 1919 in Cricklewood, North London.
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a class="car-box" href="#history">
+                <div class="car-title">Xe 1</div>
+                <div class="car-detail">
+                    <div class="d-flex my-1">
+                        <div class="col-md-5 font-weight-bold pr-0">Car's name</div>
+                        <div class="col-md-7 pl-0">Rolls-Royce Limited (1931)</div>
+                    </div>
+                    <div class="d-flex my-1">
+                        <div class="col-md-5 font-weight-bold pr-0">Plate number</div>
+                        <div class="col-md-7 pl-0">B52-6587</div>
+                    </div>
+                    <div class="d-flex my-1 description">
+                        <div class="col">
+                            <b class="mr-3">Description: </b>Bentley Motors Limited is a British company that designs,
+                            develops, and manufactures luxury motorcars which are largely hand-built. It is a subsidiary
+                            of Volkswagen
+                            AG.Now based in Crewe, England, Bentley Motors Limited was founded by W. O. Bentley on 18
+                            January 1919 in Cricklewood, North London.
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a class="car-box" href="#history">
+                <div class="car-title">Xe 1</div>
+                <div class="car-detail">
+                    <div class="d-flex my-1">
+                        <div class="col-md-5 font-weight-bold pr-0">Car's name</div>
+                        <div class="col-md-7 pl-0">Rolls-Royce Limited (1931)</div>
+                    </div>
+                    <div class="d-flex my-1">
+                        <div class="col-md-5 font-weight-bold pr-0">Plate number</div>
+                        <div class="col-md-7 pl-0">B52-6587</div>
+                    </div>
+                    <div class="d-flex my-1 description">
+                        <div class="col">
+                            <b class="mr-3">Description: </b>Bentley Motors Limited is a British company that designs,
+                            develops, and manufactures luxury motorcars which are largely hand-built. It is a subsidiary
+                            of Volkswagen
+                            AG.Now based in Crewe, England, Bentley Motors Limited was founded by W. O. Bentley on 18
+                            January 1919 in Cricklewood, North London.
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a class="car-box" href="#history">
+                <div class="car-title">Xe 1</div>
+                <div class="car-detail">
+                    <div class="d-flex my-1">
+                        <div class="col-md-5 font-weight-bold pr-0">Car's name</div>
+                        <div class="col-md-7 pl-0">Rolls-Royce Limited (1931)</div>
+                    </div>
+                    <div class="d-flex my-1">
+                        <div class="col-md-5 font-weight-bold pr-0">Plate number</div>
+                        <div class="col-md-7 pl-0">B52-6587</div>
+                    </div>
+                    <div class="d-flex my-1 description">
+                        <div class="col">
+                            <b class="mr-3">Description: </b>Bentley Motors Limited is a British company that designs,
+                            develops, and manufactures luxury motorcars which are largely hand-built. It is a subsidiary
+                            of Volkswagen
+                            AG.Now based in Crewe, England, Bentley Motors Limited was founded by W. O. Bentley on 18
+                            January 1919 in Cricklewood, North London.
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <div id="history" class="history" style="height: 700px;">
+            <h3 class="my-3">Car History</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time in</th>
+                    <th scope="col">Time out</th>
+                    <th scope="col">Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>20/12/2020</td>
+                    <td>15:25:30</td>
+                    <td>15:59:59</td>
+                    <td>0:34:29</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>20/12/2020</td>
+                    <td>15:25:30</td>
+                    <td>15:59:59</td>
+                    <td>0:34:29</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>20/12/2020</td>
+                    <td>15:25:30</td>
+                    <td>15:59:59</td>
+                    <td>0:34:29</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>20/12/2020</td>
+                    <td>15:25:30</td>
+                    <td>15:59:59</td>
+                    <td>0:34:29</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>20/12/2020</td>
+                    <td>15:25:30</td>
+                    <td>15:59:59</td>
+                    <td>0:34:29</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+    $(".car-box").click(function (e) {
+        if (this.hash !== "") {
+            e.preventDefault();
+
+            const hash = this.hash;
+
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 500, function () {
+                window.location.hash = hash;
+            });
+        }
+    });
+</script>
+{% endblock %}

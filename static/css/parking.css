@@ -1,0 +1,9 @@
+.parking-info-box {
+    background: #f2f2f2;
+    padding: 15px;
+    border-radius: 3px;
+}
+
+.parking-info {
+    font-size: 0.8rem;
+}

@@ -63,7 +63,6 @@ class MQTTClient(mqtt.Client):
                         "status": data['status']
                     })
         except (Device.DoesNotExist, ValueError):
-            print()
             pass
 
     def _on_publish(mosq, obj, mid):

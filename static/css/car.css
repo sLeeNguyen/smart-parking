@@ -1,0 +1,33 @@
+body {
+    background: #fafafa;
+}
+
+.list-cars {
+    display: inline-block;
+}
+
+.list-cars .car-box {
+    width: 31%;
+    background: #fff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 0.8rem 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1%;
+    float: left;
+}
+
+.list-cars .car-box:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 1s all;
+    transform: scale(1.02);
+    color: #666666 !important;
+}
+
+.list-cars .car-box .car-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
