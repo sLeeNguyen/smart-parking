@@ -1,6 +1,6 @@
 from elasticsearch import Elasticsearch
 
-es = Elasticsearch([{"host": "localhost", "port": 9200, "timeout": 60}])
+es = Elasticsearch([{"host": "es-smartparking", "port": 9200, "timeout": 60}])
 
 default_settings = {
     "index": {
