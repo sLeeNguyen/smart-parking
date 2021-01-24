@@ -69,12 +69,12 @@ def analysis_parking_history(begin_time, end_time, timezone):
                 },
                 "aggs": {
                     "group_by_hour": {
-                        "date_histogram": {
-                            "field": "time_in",
-                            "calendar_interval": "hour",
-                            "format": "k:00",
-                            "time_zone": "+07:00",
-                            "min_doc_count": 0,
+                        "terms": {
+                            "script": {
+                                "lang": "painless",
+                                "source": "doc['time_in'].value.withZoneSameInstant(ZoneId.of(\"%s\")).getHour()" % timezone
+                            },
+                            "min_doc_count": 1,
                             "order": {
                                 "_key": "asc"
                             }
@@ -94,12 +94,12 @@ def analysis_parking_history(begin_time, end_time, timezone):
                 },
                 "aggs": {
                     "group_by_hour": {
-                        "date_histogram": {
-                            "field": "time_out",
-                            "calendar_interval": "hour",
-                            "format": "k:00",
-                            "time_zone": "+07:00",
-                            "min_doc_count": 0,
+                        "terms": {
+                            "script": {
+                                "lang": "painless",
+                                "source": "doc['time_out'].value.withZoneSameInstant(ZoneId.of(\"%s\")).getHour()" % timezone
+                            },
+                            "min_doc_count": 1,
                             "order": {
                                 "_key": "asc"
                             }

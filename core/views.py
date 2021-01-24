@@ -259,18 +259,35 @@ class ParkingAnalysisView(LoginRequiredMixin, View):
         in_datasets = []
         out_datasets = []
         in_total = in_analysis["doc_count"]
+        in_buckets = in_analysis["group_by_hour"]["buckets"]
         out_total = out_analysis["doc_count"]
+        out_buckets = out_analysis["group_by_hour"]["buckets"]
         in_max = out_max = 0
 
-        for bucket in in_analysis["group_by_hour"]["buckets"]:
-            in_labels.append(bucket["key_as_string"])
-            in_datasets.append(bucket["doc_count"])
-            in_max = max(in_max, bucket["doc_count"])
-
-        for bucket in out_analysis["group_by_hour"]["buckets"]:
-            out_labels.append(bucket["key_as_string"])
-            out_datasets.append(bucket["doc_count"])
-            out_max = max(out_max, bucket["doc_count"])
+        if in_buckets:
+            pre = int(in_analysis["group_by_hour"]["buckets"][0]["key"])
+            for bucket in in_analysis["group_by_hour"]["buckets"]:
+                next_hour = int(bucket["key"])
+                if pre + 1 < next_hour:
+                    for h in range(pre + 1, next_hour):
+                        in_labels.append(str(h) + ":00")
+                        in_datasets.append(0)
+                pre = next_hour
+                in_labels.append(bucket["key"] + ":00")
+                in_datasets.append(bucket["doc_count"])
+                in_max = max(in_max, bucket["doc_count"])
+        if out_buckets:
+            pre = int(in_analysis["group_by_hour"]["buckets"][0]["key"])
+            for bucket in out_analysis["group_by_hour"]["buckets"]:
+                next_hour = int(bucket["key"])
+                if pre + 1 < next_hour:
+                    for h in range(pre + 1, next_hour):
+                        out_labels.append(str(h) + ":00")
+                        out_datasets.append(0)
+                pre = next_hour
+                out_labels.append(bucket["key"] + ":00")
+                out_datasets.append(bucket["doc_count"])
+                out_max = max(out_max, bucket["doc_count"])
 
         if not in_labels:
             in_labels.append("00:00")
