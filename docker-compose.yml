@@ -27,7 +27,10 @@ services:
     build: .
     container_name: web-smartparking
     command: |
-      bash -c "sleep 15 && python manage.py runserver 0.0.0.0:8000"
+      bash -c "sleep 15 && python manage.py makemigrations && python manage.py migrate && \
+      python manage.py loaddata sample_data/db.json && \
+      python manage.py loadesdata sample_data/es.json && \
+      python manage.py runserver 0.0.0.0:8000"
     ports:
       - "8000:8000"
     volumes:

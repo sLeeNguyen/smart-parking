@@ -1,4 +1,9 @@
-from elasticsearch import Elasticsearch
+import json
+import os
+
+from elasticsearch import Elasticsearch, helpers
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 es = Elasticsearch([{"host": "es-smartparking", "port": 9200, "timeout": 60}])
 
@@ -28,6 +33,12 @@ def init():
     print("elasticsearch setup")
     if not es.indices.exists(index="parking_history"):
         es.indices.create(index="parking_history", body=parking_history_infex_settings)
+
+
+def import_data(path):
+    with open(os.path.join(BASE_DIR, path)) as es_json:
+        json_docs = json.load(es_json)
+        return helpers.bulk(es, actions=json_docs, raise_on_error=False)
 
 
 def index_parking_history(id, car_id, time_in, user_id, **kwargs):
