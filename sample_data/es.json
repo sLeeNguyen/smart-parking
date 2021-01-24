@@ -1,0 +1,230 @@
+[
+  {
+    "_index": "parking_history",
+    "_id": "12",
+    "_source": {
+      "id": 12,
+      "car_id": 6,
+      "time_in": "2021-01-23T08:37:14.146158+00:00",
+      "user_id": 3,
+      "time_out": "2021-01-23T10:25:51.276136+00:00",
+      "fees": 23102
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "13",
+    "_source": {
+      "id": 13,
+      "car_id": 8,
+      "time_in": "2021-01-23T09:04:24.264791+00:00",
+      "user_id": 1,
+      "time_out": "2021-01-23T10:29:58.742687+00:00",
+      "fees": 19261
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "11",
+    "_source": {
+      "id": 11,
+      "car_id": 7,
+      "time_in": "-2021-01-23T08:sdf37:09.272565+00:00",
+      "user_id": 2,
+      "time_out": "2021-01-23T09:06:40.776060+00:00",
+      "fees": 9919
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "10",
+    "_source": {
+      "id": 10,
+      "car_id": 4,
+      "time_in": "2021-01-23T08:20:28.763791+00:00",
+      "user_id": 1,
+      "time_out": "2021-01-23T08:30:31.873737+00:00",
+      "fees": 6675
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "15",
+    "_source": {
+      "id": 15,
+      "car_id": 6,
+      "time_in": "2021-01-23T10:53:31.351933+00:00",
+      "user_id": 3,
+      "time_out": "2021-01-23T14:04:23.862958+00:00",
+      "fees": 36811
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "17",
+    "_source": {
+      "id": 17,
+      "car_id": 5,
+      "time_in": "2021-01-23T11:09:53.638367+00:00",
+      "user_id": 1,
+      "time_out": "2021-01-23T14:03:46.706259+00:00",
+      "fees": 33980
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "22",
+    "_source": {
+      "id": 22,
+      "car_id": 5,
+      "time_in": "2021-01-23T14:04:45.578314+00:00",
+      "user_id": 1,
+      "time_out": "2021-01-23T14:09:37.680338+00:00",
+      "fees": 5811
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "14",
+    "_source": {
+      "id": 14,
+      "car_id": 8,
+      "time_in": "2021-01-23T10:53:28.105845+00:00",
+      "user_id": 1,
+      "time_out": "2021-01-23T10:53:42.107966+00:00",
+      "fees": 5038
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "19",
+    "_source": {
+      "id": 19,
+      "car_id": 5,
+      "time_in": "2021-01-23T14:04:14.729264+00:00",
+      "user_id": 1,
+      "time_out": "2021-01-23T14:04:30.047532+00:00",
+      "fees": 5041
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "23",
+    "_source": {
+      "id": 23,
+      "car_id": 9,
+      "time_in": "2021-01-23T15:12:47.393011+00:00",
+      "user_id": 2,
+      "time_out": "2021-01-24T13:41:48.169364+00:00",
+      "fees": 229833
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "18",
+    "_source": {
+      "id": 18,
+      "car_id": 8,
+      "time_in": "2021-01-23T14:03:59.804621+00:00",
+      "user_id": 1,
+      "time_out": "2021-01-24T13:42:06.546797+00:00",
+      "fees": 241350
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "25",
+    "_source": {
+      "id": 25,
+      "car_id": 6,
+      "time_in": "2021-01-23T15:34:33.029622+00:00",
+      "user_id": 3,
+      "time_out": "2021-01-24T13:42:21.850668+00:00",
+      "fees": 226300
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "20",
+    "_source": {
+      "id": 20,
+      "car_id": 4,
+      "time_in": "2021-01-23T14:04:18.322289+00:00",
+      "user_id": 1,
+      "time_out": "2021-01-24T13:42:26.746305+00:00",
+      "fees": 241355
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "24",
+    "_source": {
+      "id": 24,
+      "car_id": 7,
+      "time_in": "2021-01-23T15:34:25.662657+00:00",
+      "user_id": 2,
+      "time_out": "2021-01-24T13:42:17.162467+00:00",
+      "fees": 226308
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "21",
+    "_source": {
+      "id": 21,
+      "car_id": 6,
+      "time_in": "2021-01-23T14:04:40.344632+00:00",
+      "user_id": 3,
+      "time_out": "2021-01-23T14:09:45.385246+00:00",
+      "fees": 5847
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "26",
+    "_source": {
+      "id": 26,
+      "car_id": 10,
+      "time_in": "2021-01-24T13:43:24.732728+00:00",
+      "user_id": 2,
+      "time_out": null,
+      "fees": null
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "28",
+    "_source": {
+      "id": 28,
+      "car_id": 7,
+      "time_in": "2021-01-24T14:44:30.453622+00:00",
+      "user_id": 2,
+      "time_out": null,
+      "fees": null
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "27",
+    "_source": {
+      "id": 27,
+      "car_id": 9,
+      "time_in": "2021-01-24T14:44:24.450721+00:00",
+      "user_id": 2,
+      "time_out": null,
+      "fees": null
+    }
+  },
+  {
+    "_index": "parking_history",
+    "_id": "16",
+    "_source": {
+      "id": 16,
+      "car_id": 7,
+      "time_in": "2021-01-23T10:53:33.451930+00:00",
+      "user_id": 2,
+      "time_out": "2021-01-23T15:16:44.679716+00:00",
+      "fees": 48863
+    }
+  }
+]

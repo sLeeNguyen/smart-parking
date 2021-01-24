@@ -143,6 +143,344 @@
     }
   },
   {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2021-01-20T10:11:32.233Z",
+      "user": 3,
+      "content_type": 8,
+      "object_id": "34013a8e-561e-11eb-890f-0d856409b920",
+      "object_repr": "Device object (34013a8e-561e-11eb-890f-0d856409b920)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Active\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+      "action_time": "2021-01-20T10:11:36.523Z",
+      "user": 3,
+      "content_type": 8,
+      "object_id": "2ba643c0-561e-11eb-890f-0d856409b920",
+      "object_repr": "Device object (2ba643c0-561e-11eb-890f-0d856409b920)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Active\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+      "action_time": "2021-01-23T07:31:28.593Z",
+      "user": 3,
+      "content_type": 7,
+      "object_id": "3",
+      "object_repr": "Car object (3)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+      "action_time": "2021-01-23T07:31:28.600Z",
+      "user": 3,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "Car object (2)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+      "action_time": "2021-01-23T07:31:28.604Z",
+      "user": 3,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "Car object (1)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+      "action_time": "2021-01-23T07:33:47.009Z",
+      "user": 3,
+      "content_type": 9,
+      "object_id": "1",
+      "object_repr": "ParkingHistory object (1)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+      "action_time": "2021-01-23T08:01:59.670Z",
+      "user": 3,
+      "content_type": 9,
+      "object_id": "6",
+      "object_repr": "ParkingHistory object (6)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+      "action_time": "2021-01-23T08:01:59.689Z",
+      "user": 3,
+      "content_type": 9,
+      "object_id": "5",
+      "object_repr": "ParkingHistory object (5)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+      "action_time": "2021-01-23T08:01:59.694Z",
+      "user": 3,
+      "content_type": 9,
+      "object_id": "4",
+      "object_repr": "ParkingHistory object (4)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+      "action_time": "2021-01-23T08:01:59.698Z",
+      "user": 3,
+      "content_type": 9,
+      "object_id": "3",
+      "object_repr": "ParkingHistory object (3)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+      "action_time": "2021-01-23T08:01:59.703Z",
+      "user": 3,
+      "content_type": 9,
+      "object_id": "2",
+      "object_repr": "ParkingHistory object (2)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+      "action_time": "2021-01-23T08:19:26.587Z",
+      "user": 3,
+      "content_type": 9,
+      "object_id": "8",
+      "object_repr": "ParkingHistory object (8)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+      "action_time": "2021-01-23T08:19:26.609Z",
+      "user": 3,
+      "content_type": 9,
+      "object_id": "7",
+      "object_repr": "ParkingHistory object (7)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+      "action_time": "2021-01-23T08:31:31.192Z",
+      "user": 3,
+      "content_type": 9,
+      "object_id": "9",
+      "object_repr": "ParkingHistory object (9)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Time out\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+      "action_time": "2021-01-23T08:32:37.675Z",
+      "user": 3,
+      "content_type": 9,
+      "object_id": "9",
+      "object_repr": "ParkingHistory object (9)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+      "action_time": "2021-01-23T08:34:43.574Z",
+      "user": 3,
+      "content_type": 7,
+      "object_id": "6",
+      "object_repr": "Car object (6)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+      "action_time": "2021-01-23T08:36:29.806Z",
+      "user": 3,
+      "content_type": 7,
+      "object_id": "7",
+      "object_repr": "Car object (7)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+      "action_time": "2021-01-23T08:36:38.011Z",
+      "user": 3,
+      "content_type": 7,
+      "object_id": "7",
+      "object_repr": "Car object (7)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"License plate\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+      "action_time": "2021-01-23T08:36:47.393Z",
+      "user": 3,
+      "content_type": 7,
+      "object_id": "7",
+      "object_repr": "Car object (7)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Owner\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+      "action_time": "2021-01-23T09:03:51.849Z",
+      "user": 3,
+      "content_type": 7,
+      "object_id": "8",
+      "object_repr": "Car object (8)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+      "action_time": "2021-01-23T09:04:18.234Z",
+      "user": 3,
+      "content_type": 7,
+      "object_id": "8",
+      "object_repr": "Car object (8)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"License plate\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+      "action_time": "2021-01-23T14:13:24.864Z",
+      "user": 3,
+      "content_type": 7,
+      "object_id": "9",
+      "object_repr": "Car object (9)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+      "action_time": "2021-01-23T15:31:23.342Z",
+      "user": 3,
+      "content_type": 7,
+      "object_id": "5",
+      "object_repr": "Car object (5)",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+      "action_time": "2021-01-23T15:32:06.172Z",
+      "user": 3,
+      "content_type": 7,
+      "object_id": "6",
+      "object_repr": "Car object (6)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Owner\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+      "action_time": "2021-01-23T15:32:20.121Z",
+      "user": 3,
+      "content_type": 7,
+      "object_id": "6",
+      "object_repr": "Car object (6)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Owner\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+      "action_time": "2021-01-23T15:32:31.788Z",
+      "user": 3,
+      "content_type": 7,
+      "object_id": "6",
+      "object_repr": "Car object (6)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Owner\"]}}]"
+    }
+  },
+  {
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -431,6 +769,42 @@
     }
   },
   {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add parking history",
+      "content_type": 9,
+      "codename": "add_parkinghistory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change parking history",
+      "content_type": 9,
+      "codename": "change_parkinghistory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete parking history",
+      "content_type": 9,
+      "codename": "delete_parkinghistory"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view parking history",
+      "content_type": 9,
+      "codename": "view_parkinghistory"
+    }
+  },
+  {
     "model": "contenttypes.contenttype",
     "pk": 1,
     "fields": {
@@ -495,11 +869,35 @@
     }
   },
   {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "core",
+      "model": "parkinghistory"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "ear233jkvglwg37ydb9a46rd7n7tvwp4",
+    "fields": {
+      "session_data": ".eJxVjMEOwiAQRP-FsyGwCKUevfsNZFkWqRpISnsy_rtt0oNe5jDvzbxFwHUpYe08hymJiwBx-u0i0pPrDtID671JanWZpyh3RR60y1tL_Loe7t9BwV62tYVx8BaTzxo4E7qBzxa8yeQsOSSvFVGyUTOMsCUTAqH2xhtnlELx-QLvGzgl:1l3gkY:EIZYv2NiHq2SFaJtGEd68mOVGQmzJrEhCwThT9vWKTw",
+      "expire_date": "2021-02-07T14:52:22.358Z"
+    }
+  },
+  {
     "model": "sessions.session",
     "pk": "hx9yv0964hjk7fcs0thd5n22pw4w7853",
     "fields": {
       "session_data": ".eJxVjMEOwiAQRP-FsyGwCKUevfsNZFkWqRpISnsy_rtt0oNe5jDvzbxFwHUpYe08hymJiwBx-u0i0pPrDtID671JanWZpyh3RR60y1tL_Loe7t9BwV62tYVx8BaTzxo4E7qBzxa8yeQsOSSvFVGyUTOMsCUTAqH2xhtnlELx-QLvGzgl:1kzb4Q:Pzw66yY5vDYFuOk69MzVDtNTm8Tdg-kMNKE5nMXG9vs",
       "expire_date": "2021-01-27T07:59:58.383Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "i4iwkbd17ky7v53xms5uob32f9za0tul",
+    "fields": {
+      "session_data": ".eJxVjMEOwiAQRP-FsyGwCKUevfsNZFkWqRpISnsy_rtt0oNe5jDvzbxFwHUpYe08hymJiwBx-u0i0pPrDtID671JanWZpyh3RR60y1tL_Loe7t9BwV62tYVx8BaTzxo4E7qBzxa8yeQsOSSvFVGyUTOMsCUTAqH2xhtnlELx-QLvGzgl:1l3L2I:vAps2qF10ENMoJFcf7q4Mk-PYEvIPkRAS9eIRpndHLs",
+      "expire_date": "2021-02-06T15:41:14.430Z"
     }
   },
   {
@@ -520,10 +918,26 @@
   },
   {
     "model": "sessions.session",
+    "pk": "kx1u3f84w6spryotylrclmz5qoi5wtmm",
+    "fields": {
+      "session_data": ".eJxVjMEOwiAQRP-FsyGwCKUevfsNZFkWqRpISnsy_rtt0oNe5jDvzbxFwHUpYe08hymJiwBx-u0i0pPrDtID671JanWZpyh3RR60y1tL_Loe7t9BwV62tYVx8BaTzxo4E7qBzxa8yeQsOSSvFVGyUTOMsCUTAqH2xhtnlELx-QLvGzgl:1l3Kua:-VsLbKMOLDi8b4EZ2kkRhd2Kfomq7yslQjlwAk0q25o",
+      "expire_date": "2021-02-06T15:33:16.690Z"
+    }
+  },
+  {
+    "model": "sessions.session",
     "pk": "pf6mc44rxwypnix6767ikjpparf54847",
     "fields": {
       "session_data": ".eJxVjEsOwjAMBe-SNYoaK3YSluw5Q-XEDimgVupnhbg7VOoCtm9m3sv0vK2t3xad-0HM2Thz-t0yl4eOO5A7j7fJlmlc5yHbXbEHXex1En1eDvfvoPHSvrUWTMAdBcoJNEHQjMzkK4q46iN1hKgq4BI57JxA9NVDQMCqsZJ5fwDazTdY:1krGOm:p8FmkPhEW67QNiYQJIdGUNU-5LzXmxiNBFJU3f6_wB0",
       "expire_date": "2021-01-04T08:18:32.117Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "rqumzsxwmfbf10z9w18tzocq5nrs74cl",
+    "fields": {
+      "session_data": ".eJxVjMEOwiAQRP-FsyGwCKUevfsNZFkWqRpISnsy_rtt0oNe5jDvzbxFwHUpYe08hymJiwBx-u0i0pPrDtID671JanWZpyh3RR60y1tL_Loe7t9BwV62tYVx8BaTzxo4E7qBzxa8yeQsOSSvFVGyUTOMsCUTAqH2xhtnlELx-QLvGzgl:1l2CC8:LriyYWPQrbLCnGGzzn0Pv0zYwZsIobRA7iHiCKD6sjU",
+      "expire_date": "2021-02-03T12:02:40.922Z"
     }
   },
   {
@@ -536,18 +950,26 @@
   },
   {
     "model": "sessions.session",
-    "pk": "t9dagvf8eliyu9xned43l52wphpntw8a",
-    "fields": {
-      "session_data": ".eJxVjEsOwjAMBe-SNYpwnDoNS_acoXLshBZQKvWzQtydVuoCtm9m3tt0vC59t8556gY1F4Pm9LsllmeuO9AH1_toZazLNCS7K_ags72Nml_Xw_076HnutxoSyRkhtDFgLuJUULyLDavG1BaOkEkccfDkUQELgCdoUKjdZPTm8wXgUzdy:1kztcL:vW08-uDlqWKvSZJSUYgdK0lIB62-4qNvcXRmbnxBWiw",
-      "expire_date": "2021-01-28T03:48:13.263Z"
-    }
-  },
-  {
-    "model": "sessions.session",
     "pk": "tbnh4tgq512czy81tbqtxftc5x804nts",
     "fields": {
       "session_data": ".eJxVjMEOwiAQRP-FsyGwCKUevfsNZFkWqRpISnsy_rtt0oNe5jDvzbxFwHUpYe08hymJiwBx-u0i0pPrDtID671JanWZpyh3RR60y1tL_Loe7t9BwV62tYVx8BaTzxo4E7qBzxa8yeQsOSSvFVGyUTOMsCUTAqH2xhtnlELx-QLvGzgl:1kzg4R:RUV6NF9D8MO8RQqj3tJG5oSzLPGyNiwiV99zxA5qWac",
       "expire_date": "2021-01-27T13:20:19.963Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "vrkt202g95stiu3afljobzjp2dgo3q0u",
+    "fields": {
+      "session_data": ".eJxVjMEOwiAQRP-FsyGwCKUevfsNZFkWqRpISnsy_rtt0oNe5jDvzbxFwHUpYe08hymJiwBx-u0i0pPrDtID671JanWZpyh3RR60y1tL_Loe7t9BwV62tYVx8BaTzxo4E7qBzxa8yeQsOSSvFVGyUTOMsCUTAqH2xhtnlELx-QLvGzgl:1l3ML1:1oc8tlRNQtalV5B4NXUAAkJBx2dB1tIQRwlipFaNNiA",
+      "expire_date": "2021-02-06T17:04:39.332Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "zumfai7yjx8s3fur5k3ncxwrtgjgupkd",
+    "fields": {
+      "session_data": ".eJxVjMEOwiAQRP-FsyGwCKUevfsNZFkWqRpISnsy_rtt0oNe5jDvzbxFwHUpYe08hymJiwBx-u0i0pPrDtID671JanWZpyh3RR60y1tL_Loe7t9BwV62tYVx8BaTzxo4E7qBzxa8yeQsOSSvFVGyUTOMsCUTAqH2xhtnlELx-QLvGzgl:1l3LHc:1-EsQGQjEUDQ4R202QP1YfzcY6h47lNQRPtHoOlKhbg",
+      "expire_date": "2021-02-06T15:57:04.962Z"
     }
   },
   {
@@ -573,7 +995,7 @@
     "pk": 2,
     "fields": {
       "password": "pbkdf2_sha256$216000$QQFPIKrbKx5i$9g3LIxI27XR6gaAhWdXc0+pVgq+Jq1SIGfJJ7BlzCkI=",
-      "last_login": "2021-01-13T14:44:40.984Z",
+      "last_login": "2021-01-24T14:52:22.352Z",
       "is_superuser": false,
       "username": "nguyen ba ngoc",
       "first_name": "",
@@ -591,7 +1013,7 @@
     "pk": 3,
     "fields": {
       "password": "pbkdf2_sha256$216000$XM8mxuBz10Gy$z0ZEKZVMcwkqmW/SPaOOMqZ27AxUoysfcHFZaMP3E80=",
-      "last_login": "2021-01-14T03:48:13.256Z",
+      "last_login": "2021-01-23T07:31:08.982Z",
       "is_superuser": true,
       "username": "admin",
       "first_name": "",
@@ -606,36 +1028,6 @@
   },
   {
     "model": "users.car",
-    "pk": 1,
-    "fields": {
-      "car_name": "123",
-      "description": "123",
-      "license_plate_number": "123",
-      "owner": 1
-    }
-  },
-  {
-    "model": "users.car",
-    "pk": 2,
-    "fields": {
-      "car_name": "123",
-      "description": "123",
-      "license_plate_number": "123123",
-      "owner": 1
-    }
-  },
-  {
-    "model": "users.car",
-    "pk": 3,
-    "fields": {
-      "car_name": "123",
-      "description": "123123123",
-      "license_plate_number": "123123123",
-      "owner": 1
-    }
-  },
-  {
-    "model": "users.car",
     "pk": 4,
     "fields": {
       "car_name": "Ngocnb",
@@ -646,12 +1038,52 @@
   },
   {
     "model": "users.car",
-    "pk": 5,
+    "pk": 6,
     "fields": {
-      "car_name": "car",
-      "description": "",
-      "license_plate_number": "34A56312",
+      "car_name": "Vinfast",
+      "description": "Vinfast is the best",
+      "license_plate_number": "69B69969",
+      "owner": 3
+    }
+  },
+  {
+    "model": "users.car",
+    "pk": 7,
+    "fields": {
+      "car_name": "Mercedes-AMG A 35 4MATIC Saloon",
+      "description": "The sporty new take on the classic 3-box design lends the new Mercedes-AMG A 35 4MATIC Saloon dynamic elegance.",
+      "license_plate_number": "99F12356",
+      "owner": 2
+    }
+  },
+  {
+    "model": "users.car",
+    "pk": 8,
+    "fields": {
+      "car_name": "VINFAST LUX SA2.0 - Red",
+      "description": "Xe màu đỏ. 1 tỷ 2",
+      "license_plate_number": "12F67890",
       "owner": 1
+    }
+  },
+  {
+    "model": "users.car",
+    "pk": 9,
+    "fields": {
+      "car_name": "Rolls-Royce Limited (1931)",
+      "description": "Bentley Motors Limited is a British company that designs, develops, and manufactures luxury motorcars which are largely hand-built. It is a subsidiary of Volkswagen AG. Now based in Crewe, England, Bentley Motors Limited was founded by W. O. Bentley on 18 January 1919 in Cricklewood, North London.",
+      "license_plate_number": "34A23567",
+      "owner": 2
+    }
+  },
+  {
+    "model": "users.car",
+    "pk": 10,
+    "fields": {
+      "car_name": "VinFast President",
+      "description": "VinFast President is a full-size luxury SUV manufactured and marketed by VinFast of Vingroup from September 7, 2020.[3] This is fourth car model introduced by VinFast, after VinFast Fadil, LUX A2.0 and SA2.0. The pre-concept version VinFast LUX V8 was presented at Geneva Motor Show 2019",
+      "license_plate_number": "36D64649",
+      "owner": 2
     }
   },
   {
@@ -661,7 +1093,7 @@
       "device_name": "Arduino A1",
       "description": "Quản lý khu A1 trong bãi đỗ",
       "position": "A1",
-      "slot_occupied": 0,
+      "slot_occupied": 41,
       "is_active": true
     }
   },
@@ -672,7 +1104,7 @@
       "device_name": "Arduino A2",
       "description": "Quản lý khu A2 trong bãi đỗ",
       "position": "A2",
-      "slot_occupied": 0,
+      "slot_occupied": 44,
       "is_active": true
     }
   },
@@ -683,7 +1115,7 @@
       "device_name": "Arduino B1",
       "description": "Quản lý khu B1 trong bãi đỗ",
       "position": "B1",
-      "slot_occupied": 0,
+      "slot_occupied": 55,
       "is_active": true
     }
   },
@@ -694,8 +1126,8 @@
       "device_name": "Arduino B2",
       "description": "Quản lý khu B2 trong bãi đỗ",
       "position": "B2",
-      "slot_occupied": 5,
-      "is_active": false
+      "slot_occupied": 8,
+      "is_active": true
     }
   },
   {
@@ -705,8 +1137,8 @@
       "device_name": "Arduino B3",
       "description": "Quản lý khu B3 trong bãi đỗ",
       "position": "B3",
-      "slot_occupied": 0,
-      "is_active": false
+      "slot_occupied": 8,
+      "is_active": true
     }
   },
   {
@@ -716,8 +1148,168 @@
       "device_name": "Arduino B4",
       "description": "Quản lý khu B4 trong bãi đỗ",
       "position": "B4",
-      "slot_occupied": 0,
+      "slot_occupied": 50,
       "is_active": true
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 10,
+    "fields": {
+      "time_in": "2021-01-23T08:20:28.763Z",
+      "time_out": "2021-01-23T08:30:31.873Z",
+      "fees": 6675,
+      "car": 4
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 11,
+    "fields": {
+      "time_in": "2021-01-23T08:37:09.272Z",
+      "time_out": "2021-01-23T09:06:40.776Z",
+      "fees": 9919,
+      "car": 7
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 12,
+    "fields": {
+      "time_in": "2021-01-23T08:37:14.146Z",
+      "time_out": "2021-01-23T10:25:51.276Z",
+      "fees": 23102,
+      "car": 6
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 13,
+    "fields": {
+      "time_in": "2021-01-23T09:04:24.264Z",
+      "time_out": "2021-01-23T10:29:58.742Z",
+      "fees": 19261,
+      "car": 8
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 14,
+    "fields": {
+      "time_in": "2021-01-23T10:53:28.105Z",
+      "time_out": "2021-01-23T10:53:42.107Z",
+      "fees": 5038,
+      "car": 8
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 15,
+    "fields": {
+      "time_in": "2021-01-23T10:53:31.351Z",
+      "time_out": "2021-01-23T14:04:23.862Z",
+      "fees": 36811,
+      "car": 6
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 16,
+    "fields": {
+      "time_in": "2021-01-23T10:53:33.451Z",
+      "time_out": "2021-01-23T15:16:44.679Z",
+      "fees": 48863,
+      "car": 7
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 18,
+    "fields": {
+      "time_in": "2021-01-23T14:03:59.804Z",
+      "time_out": "2021-01-24T13:42:06.546Z",
+      "fees": 241350,
+      "car": 8
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 20,
+    "fields": {
+      "time_in": "2021-01-23T14:04:18.322Z",
+      "time_out": "2021-01-24T13:42:26.746Z",
+      "fees": 241355,
+      "car": 4
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 21,
+    "fields": {
+      "time_in": "2021-01-23T14:04:40.344Z",
+      "time_out": "2021-01-23T14:09:45.385Z",
+      "fees": 5847,
+      "car": 6
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 23,
+    "fields": {
+      "time_in": "2021-01-23T15:12:47.393Z",
+      "time_out": "2021-01-24T13:41:48.169Z",
+      "fees": 229833,
+      "car": 9
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 24,
+    "fields": {
+      "time_in": "2021-01-23T15:34:25.662Z",
+      "time_out": "2021-01-24T13:42:17.162Z",
+      "fees": 226308,
+      "car": 7
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 25,
+    "fields": {
+      "time_in": "2021-01-23T15:34:33.029Z",
+      "time_out": "2021-01-24T13:42:21.850Z",
+      "fees": 226300,
+      "car": 6
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 26,
+    "fields": {
+      "time_in": "2021-01-24T13:43:24.732Z",
+      "time_out": null,
+      "fees": null,
+      "car": 10
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 27,
+    "fields": {
+      "time_in": "2021-01-24T14:44:24.450Z",
+      "time_out": null,
+      "fees": null,
+      "car": 9
+    }
+  },
+  {
+    "model": "core.parkinghistory",
+    "pk": 28,
+    "fields": {
+      "time_in": "2021-01-24T14:44:30.453Z",
+      "time_out": null,
+      "fees": null,
+      "car": 7
     }
   }
 ]
