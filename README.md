@@ -1,19 +1,9 @@
-# smart-parking
-An IOT solution for parking in Vietnam
+# Module detect license plate number
+https://github.com/quyetlc2198/plate_detection
 
+# smart-parking-web
+A website for smart parking IOT project
 
 ### Usage:
     cd smart_parking/
-
-**Create virtual environment**
-
-    python3 -m venv ./venv
-    source venv/bin/activate
-
-**Install libraries**
-
-    pip install -r requirements.txt
-    
-**Run server**
-
-    python manage.py runserver
+    docker-compose up
