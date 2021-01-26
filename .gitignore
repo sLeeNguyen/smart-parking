@@ -131,3 +131,4 @@ dmypy.json
 # other
 devices/migrations/00*
 users/migrations/00*
+core/migrations/00*
